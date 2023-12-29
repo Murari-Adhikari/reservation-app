@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resturant Reservation</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <button onclick="showIntroduction()">About Resturant</button>
+      <button onclick="showReservation()">Reservation</button>
+      <button onclick="showLocation()">Location</button>
+
+      <div id="introduction" class="section">
+        <h2>About Resturant</h2>
+        <p>
+          Welcome to a culinary haven where flavor takes center stage! At our
+          restaurant, we're dedicated to crafting a delightful dining experience
+          for you. Explore a menu that seamlessly blends local and international
+          influences, offering a diverse range of dishes prepared with the
+          finest, freshest ingredients.
+        </p>
+        <p>
+          Our inviting ambiance sets the stage for memorable moments, whether
+          you're enjoying a casual meal with friends or celebrating a special
+          occasion. From appetizing starters to indulgent desserts, each plate
+          reflects our passion for creativity and taste.
+        </p>
+        <p>
+          Join us for a culinary journey that goes beyond the ordinary. At
+          [Restaurant Name], every dish tells a story, making each visit an
+          opportunity to savor the extraordinary. We look forward to hosting you
+          and creating unforgettable memories together.
+        </p>
+      </div>
+      <div id="reservation" class="section">
+        <form action="index.php" method="POST">
+          <div id="reservation-form">
+            <h2>Reservation</h2>
+            <label for="reservation-date">Select date:</label>
+            <input type="date" id="reservation-date" name="reservation-date" />
+
+            <label for="reservation-time">Select time:</label>
+            <input
+              type="time"
+              id="reservation-time"
+              name="reservation-time"
+              onchange="fetchAvailableTables()"
+            />
+            <div
+              style="background-color: rgb(108, 180, 83)"
+              id="available-tables"
+            ></div>
+
+            <label for="numberOfGuest">Number of Guests</label>
+            <input
+              type="number"
+              id="numberOfGuest"
+              name="numberOfGuest"
+              min="1"
+            />
+
+            <button type="button" id="continue" onclick="showUserDetails()">
+              Continue
+            </button>
+          </div>
+          <div id="details" style="display: none">
+            <h2>personal info</h2>
+            <input
+              type="text"
+              id="lname"
+              name="lname"
+              placeholder="Your Last Name"
+            />
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              placeholder="Your First Name"
+            />
+            <input type="email" id="email" name="email" placeholder="email" />
+            <input
+              type="tel"
+              pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+              id="contact"
+              name="contact"
+              placeholder="Your Phone number"
+            />
+            <button type="button" id="back" onclick="backToPreviousPage()">
+              Back
+            </button>
+            <button id="formSubmit">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="location" class="section">
+        <h2>Location</h2>
+        <p>
+          This restaurant is located in Seoul Dongdaemun, near Yongdu Station,
+          in front of exit number 1. You can take either the 1 or 2 subway line
+        </p>
+
+        <a
+          href="https://www.google.com/maps/place/129-1+Cheonho-daero,+Dongdaemun-gu,+Seoul/data=!3m1!4b1!4m6!3m5!1s0x357cbcaafbe7ce9f:0x589996f0c88962c4!8m2!3d37.5743942!4d127.0377708!16s%2Fg%2F11bzbts714?entry=ttu"
+          id="map"
+          >see map</a
+        >
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
